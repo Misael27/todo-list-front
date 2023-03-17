@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { List } from 'antd';
+import { List, Spin } from 'antd';
 import Todo from '../Todo/Todo';
 import { useSelector } from 'react-redux'
 import { selectFilteredTodoIds } from './todosSlice'
+
+const listStyle = {marginTop:'1%', overflow: 'auto', height: '400px'}
 
 const TodoListItem = React.memo(function TodoListItem(todo) {
     return (
@@ -22,25 +24,16 @@ const renderTodo = (onClickEditTodo) => (todoId) => {
 const TodoList = ({ onClickEditTodo }) => {
 	const todoIds = useSelector(selectFilteredTodoIds)
 	const loadingStatus = useSelector((state) => state.todos.status)
-
-	if (loadingStatus === 'loading') {
-	  return (
-		<div className="todo-list">
-		  <div className="loader" />
-		</div>
-	  )
-	}
-
-	;
-
 	return (
-		<List
-			size="large"
-			style={{marginTop:'1%', overflow: 'auto', height: '400px'}}
-			bordered
-			dataSource={todoIds}
-			renderItem={(item) => ( renderTodo(onClickEditTodo)(item) )}
-		/>
+		<Spin tip="Loading..." spinning={loadingStatus === 'loading'}>
+			<List
+				size="large"
+				style={listStyle}
+				bordered
+				dataSource={todoIds}
+				renderItem={(item) => ( renderTodo(onClickEditTodo)(item) )}
+			/>
+		</Spin>
 	)
 }
 
