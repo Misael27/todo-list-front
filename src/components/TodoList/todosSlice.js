@@ -124,7 +124,7 @@ export const selectFilteredTodos = createSelector(
 		// Return either active or completed todos based on filter
 		return todos.filter((todo) => {
 			const statusMatches =
-				showAllCompletions || (completedStatus && !todo.isActive)
+				showAllCompletions || completedStatus === !todo.isActive 
 			return statusMatches
 		})
 	}
