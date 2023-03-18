@@ -29,6 +29,7 @@ const ModalTodoCreateEdit = ({ openModal, handleSave, todoEdit }) => {
 		values.id = todoEdit && todoEdit.id;
 		handleSave(values);
 		setConfirmLoading(false);
+		form.resetFields();
 	};
 
 	const handleCancel = () => {
