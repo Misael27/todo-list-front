@@ -18,7 +18,7 @@ const initialState = categoriesAdapter.getInitialState({
 
 // Thunk functions
 export const fetchcategories = createAsyncThunk('categories/fetchcategories', async () => {
-	
+
 	const response = await client.get('/TaskCategory/all')
 	return response.data
 })
@@ -34,7 +34,7 @@ const categoriesSlice = createSlice({
 				state.status = 'loading'
 			})
 			.addCase(fetchcategories.fulfilled, (state, action) => {
-				
+
 				categoriesAdapter.setAll(state, action.payload)
 				state.status = 'idle'
 			})

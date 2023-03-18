@@ -7,8 +7,8 @@ const CategoryCircle = ({ title, bgColor }) => {
     const circleStyle = {
         backgroundColor: bgColor,
         borderRadius: "50%",
-        width:17,
-        height:17
+        width: 17,
+        height: 17
     };
     return (
         <Tooltip placement="top" title={title}>

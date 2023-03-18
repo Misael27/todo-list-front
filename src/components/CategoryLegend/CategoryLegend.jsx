@@ -24,17 +24,17 @@ const renderCategory = () => (category) => {
 
 
 const CategoryLegend = () => {
-    
+
     const categories = useSelector(selectCategories)
     const loadingStatus = useSelector((state) => state.todos.status)
 
-	if (loadingStatus === 'loading') {
-	  return (
-		<div className="todo-list">
-		  <div className="loader" />
-		</div>
-	  )
-	}
+    if (loadingStatus === 'loading') {
+        return (
+            <div className="todo-list">
+                <div className="loader" />
+            </div>
+        )
+    }
 
     return (
         <>

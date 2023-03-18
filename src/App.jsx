@@ -1,8 +1,10 @@
 import React from 'react'
 import './App.css'
-import { BrowserRouter as Router,
-    Routes, 
-    Route } from 'react-router-dom'
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from 'react-router-dom'
 import { ConfigProvider } from 'antd';
 import MainPage from './pages/MainPage'
 import NotFoundPage from './pages/NotFoundPage.jsx'
@@ -19,13 +21,14 @@ const App = () => {
         <Provider store={store}>
             <ConfigProvider
                 theme={{
-                token: {
-                    colorPrimary: '#00b96b',
-                }}}>
+                    token: {
+                        colorPrimary: '#00b96b',
+                    }
+                }}>
                 <Router>
                     <Routes>
                         <Route path="/" element={<MainPage />} />
-                        <Route path="*" element={<NotFoundPage />}/>
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </Router>
             </ConfigProvider>

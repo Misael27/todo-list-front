@@ -9,7 +9,7 @@ const FilterTodoList = ({ option, onClick }) => {
     const primary = 'primary';
 
     return (
-        <Space wrap style={{marginTop:'1%'}}>
+        <Space wrap style={{ marginTop: '1%' }}>
             <Button onClick={() => onClick(ALL)} type={option === ALL ? primary : ''}>All</Button>
             <Button onClick={() => onClick(ACTIVE)} type={option === ACTIVE ? primary : ''}>Active</Button>
             <Button onClick={() => onClick(COMPLETED)} type={option === COMPLETED ? primary : ''}>Completed</Button>

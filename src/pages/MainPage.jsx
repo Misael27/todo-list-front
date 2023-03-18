@@ -38,7 +38,7 @@ const MainPage = () => {
         setOpen(true);
     };
 
-    const handlerEdit = (todo) => { 
+    const handlerEdit = (todo) => {
         setTodoEdit(todo);
         setOpen(true);
     };
@@ -46,32 +46,32 @@ const MainPage = () => {
     const handleSave = (values) => {
         if (values && values.id) {
             const promise = dispatch(updateTodo(values));
-            promise.then( 
-                x=> success(),
-                x=> error())
+            promise.then(
+                x => success(),
+                x => error())
         }
         else if (values) {
             const promise = dispatch(saveNewTodo(values));
-            promise.then( 
-                x=> success(),
-                x=> error())
+            promise.then(
+                x => success(),
+                x => error())
         }
         setOpen(false);
     };
 
     const success = () => {
         messageApi.open({
-          type: 'success',
-          content: 'Success',
+            type: 'success',
+            content: 'Success',
         });
-      };
-    
-      const error = () => {
+    };
+
+    const error = () => {
         messageApi.open({
-          type: 'error',
-          content: 'An error has occurred, please try again',
+            type: 'error',
+            content: 'An error has occurred, please try again',
         });
-      };
+    };
 
     const onStatusChange = (status) => dispatch(statusFilterChanged(status))
 
@@ -79,18 +79,18 @@ const MainPage = () => {
         <Layout>
             <Content style={contentStyle}>
                 <Title level={1}>To Do List</Title>
-                <Divider /> 
+                <Divider />
                 {contextHolder}
                 <Button type="primary" onClick={handlerCreate} ghost icon={<PlusOutlined />}>
                     Add New Task
                 </Button>
                 <Row>
-                    <Col span={16} offset={4}>
+                    <Col span={14} offset={5}>
                         <TodoList onClickEditTodo={handlerEdit} />
                     </Col>
                 </Row>
                 <FilterTodoList option={status} onClick={onStatusChange} />
-                <Divider /> 
+                <Divider />
                 <Row>
                     <Col span={4} offset={10}>
                         <CategoryLegend />
